@@ -1,0 +1,16 @@
+version: '3'
+services: 
+  gnodeb:
+    image: openverso/oai-gnb
+    privileged: true
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - ../uhd_images:/usr/share/uhd/images
+    cap_add:
+      - all
+    environment:
+        MODE: SA
+        AMF_HOSTNA  ME: amf
+        MCC: 001
+        MNC: 01
+        TAC: 1

@@ -1,9 +1,6 @@
 version: '3'
 services: 
   enodeb:
-    build:
-      context: ../../srs-lte/
-      dockerfile: Dockerfile
     image: openverso/srs-lte:20_04_1
     command: 
       - enb
@@ -16,9 +13,6 @@ services:
       UE_HOSTNAME: ue
 
   ue:
-    build:
-      context: ../../srs-lte/
-      dockerfile: Dockerfile
     image: openverso/srs-lte:20_04_1
     command: 
       - ue
@@ -30,6 +24,7 @@ services:
       UE_HOSTNAME: ue
       MCC: "001"
       MNC: "01"
-      MSISDN: "0000000001"
-      KEY: "465B5CE8B199B49FAA5F0A2EE238A6BC"
-      OPC: "E8ED289DEBA952E4283B54E88E6183CA"
+      MSISDN: "0123456789"
+      OPC: "63bfa50ee6523365ff14c1f45f88737d"
+      KEY: "00112233445566778899aabbccddeeff"
+

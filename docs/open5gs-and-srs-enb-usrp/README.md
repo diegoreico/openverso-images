@@ -16,7 +16,7 @@ Register subscriber in ngc with `/register_subscriber.sh`.
 # Download uhd_images
 
 
-python3 uhd_image_downloader.py -i ./uhd_images
+python3 ../../uhd_image_downloader.py -i ../../uhd_images
 
 # Deployment RAN (enodeB)
 

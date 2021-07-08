@@ -2,12 +2,12 @@
 
 5G end to end communication demo with open5gs and openairinterface enodeb.
 
-# Deployment EPC and register subscribers
+# Deployment NGC and register subscribers
 
-deploy the EPC core (open5gs) with:
+deploy the NGC core (open5gs) with:
 
 ```
-docker-compose -f epc.yaml up -d
+docker-compose -f ngc.yaml up -d
 ```
 
 Register subscriber in epc with `/register_subscriber.sh`.
@@ -18,16 +18,16 @@ Register subscriber in epc with `/register_subscriber.sh`.
 
 python3 ../../uhd_image_downloader.py -i ../../uhd_images
 
-# Deployment RAN (enodeB)
+# Deployment RAN (gnodeB)
 
 Deploy with
 
 ```
-docker-compose -f oai-enb.yaml up -d
+docker-compose -f oai-gnb.yaml up -d
 ```
 
 Undeploy with:
 
 ```
-docker-compose -f oai-enb.yaml down
+docker-compose -f oai-gnb.yaml down
 ```

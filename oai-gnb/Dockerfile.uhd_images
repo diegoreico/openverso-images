@@ -1,0 +1,9 @@
+FROM openverso/oai-gnb
+
+# with images
+RUN add-apt-repository ppa:ettusresearch/uhd --yes && \
+    DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
+		uhd-host && \
+    rm -rf /var/lib/apt/lists/* && \
+    uhd_images_downloader
+
