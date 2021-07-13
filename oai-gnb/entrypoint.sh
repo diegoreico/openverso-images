@@ -14,7 +14,7 @@ if [[ ! -z "$AMF_HOSTNAME" ]] ; then
 fi
 
 
-echo "Launching oai enb"
+echo "Launching oai gnb"
 envsubst < $GNB_TEMPLATE_PATH > gnb.conf
 
 if [ $MODE == "SA" ]; then

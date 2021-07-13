@@ -10,7 +10,7 @@ services:
       - all
     environment:
         MODE: SA
-        AMF_HOSTNA  ME: amf
+        AMF_HOSTNAME: amf
         MCC: 001
         MNC: 01
         TAC: 1
