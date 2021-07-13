@@ -1,0 +1,13 @@
+version: '3'
+services: 
+  nr-ue:
+    image: openverso/oai-nrue
+    privileged: true
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - ../uhd_images:/usr/share/uhd/images
+    cap_add:
+      - all
+    environment:
+        MODE: SA
+        GNB_HOSTNAME: gnodeb
