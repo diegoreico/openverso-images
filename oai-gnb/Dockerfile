@@ -80,7 +80,8 @@ RUN rm /usr/local/lib/liboai_transpro.so && ln -s /usr/local/lib/liboai_eth_tran
     rm /usr/local/lib/librfsimulator.so && ln -s /usr/local/lib/librfsimulator.so.Rel15 /usr/local/lib/librfsimulator.so && \
     ldconfig
 
-
+COPY --from=builder /oai-ran/targets/PROJECTS/GENERIC-LTE-EPC/CONF/*.conf ${APP_ROOT}/etc/orig/generic-lte-epc/
+COPY --from=builder /oai-ran/targets/PROJECTS/GENERIC-NR-5GC/CONF/*.conf ${APP_ROOT}/etc/orig/generic-nr-5gc/
 COPY configs ${APP_ROOT}/etc/
 COPY entrypoint.sh /
 
@@ -113,7 +114,7 @@ WORKDIR ${APP_ROOT}
 #EXPOSE 50000/udp # IF5 / ORI (control)
 #EXPOSE 50001/udp # IF5 / ECPRI (data)
 
-ENV GNB_TEMPLATE_PATH=/opt/oai/etc/gnb.conf \
+ENV GNB_TEMPLATE_PATH=/opt/oai/etc/gnb.sa.band78.fr1.106PRB.usrpb210.conf.tpl \
     GNB_BIND_INTERFACE=eth0 \
     MODE=SA \
     AMF_HOSTNAME=amf \
