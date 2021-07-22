@@ -29,7 +29,8 @@ RUN apt-get update && \
 
 #create the WORKDIR
 WORKDIR /oai-ran
-RUN git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git . && git checkout develop
+RUN git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git . 
+RUN git checkout $VERSION
 
 #run build_oai -I to get the builder image
 RUN /bin/sh oaienv && \ 

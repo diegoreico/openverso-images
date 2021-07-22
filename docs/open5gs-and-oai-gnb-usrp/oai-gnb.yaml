@@ -1,11 +1,10 @@
 version: '3'
 services: 
   gnodeb:
-    image: openverso/oai-gnb
+    image: openverso/oai-gnb:2021.w28-uhd-images
     privileged: true
     volumes:
       - /dev/bus/usb:/dev/bus/usb
-      - ../../uhd_images:/usr/share/uhd/images
     cap_add:
       - all
     environment:
