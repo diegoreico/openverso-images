@@ -1,0 +1,37 @@
+version: '3.1'
+
+services:
+
+  mariadb:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+  rtpproxy:
+    image: rtpproxy
+    environment:
+      - CONTROL_SOCK=udp:0.0.0.0:7722
+    network_mode: "service:kamailio"
+
+  kamailio:
+    image: kamailio
+    environment:
+      - DBENGINE=MYSQL
+      - SIP_DOMAIN=ims.mnc001.mcc001.3gppnetwork.org
+      - DBHOST=mariadb
+      - DBACCESSHOST=%
+      - DBROOTPW=example
+      - DBRWPW=kamailiorw
+      - DBROPW=kamailioro
+      - CHARSET="utf8"
+      - INSTALL_PRESENCE_TABLES=yes
+      - INSTALL_EXTRA_TABLES=yes
+      - INSTALL_DBUID_TABLES=yes
+    volumes:
+      - ./configs/kamailio-local.cfg:/usr/local/etc/kamailio/kamailio-local.cfg
+      - ./configs/kamailio.cfg:/usr/local/etc/kamailio/kamailio.cfg
+    command: 
+      - /bin/bash
+      - -c
+      - "tail -f /dev/null"
+    ports:
+      - 8081:8080
